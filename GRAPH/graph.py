@@ -4,7 +4,6 @@ import pandas as pd
 
 G = nx.Graph()
 
-# Otomatis baca folder tempat graph.py berada
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 csv_path = os.path.join(BASE_DIR, 'jadwal.csv')
 
@@ -14,15 +13,15 @@ try:
         G.add_edge(row['Asal'], row['Tujuan'], weight=float(row['Menit']))
     print("[SISTEM] Database jadwal.csv berhasil dimuat!\n")
 except FileNotFoundError:
-    print(f"[ERROR] File tidak ditemukan di: {csv_path}")
+    print(f"[ERROR] Berkas tidak ditemukan di: {csv_path}")
     print("Pastikan jadwal.csv berada di satu folder dengan graph.py.")
     exit()
 
 print("=" * 48)
 print("     SIMULASI RUTE KRL JABODETABEK (DIJKSTRA)   ")
 print("=" * 48)
-print("*Tips: Untuk stasiun transit, sertakan nama peronnya")
-print(" (contoh: Jakarta Kota_Red, TanahAbang_Bawah, Manggarai_Atas)\n")
+print("*Tips: Untuk stasiun transit, sertakan nama jalurnya")
+print(" (contoh: Jakarta Kota_Red, TanahAbang_Blue, Manggarai_Red)\n")
 
 stasiun_asal = input("Masukkan stasiun awal keberangkatan : ").strip()
 stasiun_tujuan = input("Masukkan stasiun tujuan akhir      : ").strip()
@@ -37,8 +36,8 @@ if stasiun_asal in G.nodes and stasiun_tujuan in G.nodes:
     print("Rute perjalanan:")
     print(" -> ".join(rute))
     print(f"\nTotal estimasi waktu tempuh : {int(total_waktu)} menit")
-    print("*Sudah memperhitungkan penalti jalan kaki di stasiun transit.")
+    print("*Sudah memperhitungkan penalti transit antar-peron.")
     print("=" * 48)
 else:
     print("\n[ERROR] Stasiun tidak ditemukan dalam database.")
-    print("Pastikan ejaan dan penamaan simpul sesuai dengan yang terdaftar di CSV.")
+    print("Pastikan ejaan persis sama dengan yang ada di jadwal.csv.")

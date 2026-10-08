@@ -1,30 +1,40 @@
 Asal,Tujuan,Menit
-Rangkasbitung,Maja,18
-Maja,Tigaraksa,11
-Tigaraksa,Parung Panjang,13
-Parung Panjang,Cisauk,8
-Cisauk,Serpong,5
-Serpong,Sudimara,8
-Sudimara,Pondok Ranji,6
-Pondok Ranji,Kebayoran,10
-Kebayoran,Palmerah,5
-Palmerah,TanahAbang_Green,5
-Bogor,Bojonggede,12
+Bogor,Cilebut,6
+Cilebut,Bojonggede,5
 Bojonggede,Citayam_Utama,5
-Citayam_Utama,Depok,7
-Depok,Universitas Indonesia,6
-Universitas Indonesia,Pasar Minggu,10
-Pasar Minggu,Cawang,7
+Citayam_Utama,Depok,5
+Depok,Depok Baru,2
+Depok Baru,Pondok Cina,3
+Pondok Cina,Universitas Indonesia,3
+Universitas Indonesia,Universitas Pancasila,2
+Universitas Pancasila,Lenteng Agung,3
+Lenteng Agung,Tanjung Barat,3
+Tanjung Barat,Pasar Minggu,4
+Pasar Minggu,Pasar Minggu Baru,2
+Pasar Minggu Baru,Duren Kalibata,2
+Duren Kalibata,Cawang,3
 Cawang,Tebet,3
 Tebet,Manggarai_Red,4
 Manggarai_Red,Cikini,4
 Cikini,Gondangdia,2
 Gondangdia,Juanda,4
-Juanda,Jakarta Kota_Red,7
+Juanda,Sawah Besar,2
+Sawah Besar,Mangga Besar,2
+Mangga Besar,Jayakarta,2
+Jayakarta,Jakarta Kota_Red,3
 Nambo,Cibinong,10
-Cibinong,Citayam_Nambo,12
-Bekasi,Cakung,8
-Cakung,Klender,5
+Cibinong,Pondok Rajeg,5
+Pondok Rajeg,Citayam_Nambo,5
+Cikarang,Metland Telaga Murni,4
+Metland Telaga Murni,Cibitung,3
+Cibitung,Tambun,5
+Tambun,Bekasi Timur,5
+Bekasi Timur,Bekasi,4
+Bekasi,Kranji,4
+Kranji,Cakung,5
+Cakung,Klender Baru,3
+Klender Baru,Buaran,3
+Buaran,Klender,3
 Klender,Jatinegara_Manggarai,5
 Klender,Jatinegara_Senen,5
 Jatinegara_Manggarai,Matraman,3
@@ -36,13 +46,38 @@ TanahAbang_Blue,Duri_Blue,8
 Duri_Blue,Angke,4
 Angke,Kampung Bandan_Blue,6
 Jatinegara_Senen,Pondok Jati,4
-Pondok Jati,Krangat,2
+Pondok Jati,Kramat,2
 Kramat,Gang Sentiong,2
 Gang Sentiong,Pasar Senen,3
-Pasar Senen,Kampung Bandan_Blue,12
-Tangerang,Batu Ceper,5
-Batu Ceper,Kalideres,8
-Kalideres,Pesing,9
+Pasar Senen,Kemayoran,4
+Kemayoran,Rajawali,3
+Rajawali,Kampung Bandan_Blue,4
+Rangkasbitung,Citeras,10
+Citeras,Maja,8
+Maja,Cikoya,4
+Cikoya,Tigaraksa,3
+Tigaraksa,Tenjo,4
+Tenjo,Daru,4
+Daru,Cilejit,4
+Cilejit,Parung Panjang,7
+Parung Panjang,Cicayur,6
+Cicayur,Cisauk,3
+Cisauk,Serpong,5
+Serpong,Rawa Buntu,4
+Rawa Buntu,Sudimara,5
+Sudimara,Jurang Mangu,4
+Jurang Mangu,Pondok Ranji,4
+Pondok Ranji,Kebayoran,8
+Kebayoran,Palmerah,5
+Palmerah,TanahAbang_Green,5
+Tangerang,Tanah Tinggi,3
+Tanah Tinggi,Batu Ceper,3
+Batu Ceper,Poris,2
+Poris,Kali Deres,3
+Kali Deres,Rawa Buaya,3
+Rawa Buaya,Bojong Indah,3
+Bojong Indah,Taman Kota,2
+Taman Kota,Pesing,3
 Pesing,Grogol,4
 Grogol,Duri_Brown,3
 Jakarta Kota_Pink,Kampung Bandan_Pink,4

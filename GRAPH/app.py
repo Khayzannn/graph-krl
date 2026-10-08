@@ -3,24 +3,30 @@ import networkx as nx
 import pandas as pd
 import streamlit as st
 
-st.set_page_config(page_title="KRL Route Finder", page_icon="🚆", layout="centered")
+st.set_page_config(
+    page_title="KRL Jabodetabek Route Finder",
+    page_icon="🚆",
+    layout="centered"
+)
 
 G = nx.Graph()
 
-# Otomatis baca folder tempat app.py berada
+# Penanganan path direktori otomatis
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 csv_path = os.path.join(BASE_DIR, 'jadwal.csv')
 
+# Validasi pembacaan berkas dataset
 if os.path.exists(csv_path):
     df = pd.read_csv(csv_path)
     for _, row in df.iterrows():
         G.add_edge(row['Asal'], row['Tujuan'], weight=float(row['Menit']))
 else:
-    st.error(f"File jadwal.csv tidak ditemukan di: {csv_path}")
+    st.error(f"Berkas jadwal.csv tidak ditemukan di direktori: {csv_path}")
     st.stop()
 
-st.title("🚆 SIMRUTE KRL JABODETABEK")
-st.caption("Pencarian Rute Tercepat Berbasis Algoritma Dijkstra & Teori Graf")
+# Header Antarmuka
+st.title("🚆 Simulasi Rute KRL Jabodetabek")
+st.caption("Pencarian Rute Tercepat Berbasis Algoritma Dijkstra & Pemodelan Virtual Node")
 st.write("---")
 
 daftar_stasiun = sorted(list(G.nodes()))
@@ -40,17 +46,22 @@ if st.button("Cari Rute Tercepat", use_container_width=True, type="primary"):
             total_waktu = nx.dijkstra_path_length(G, source=stasiun_asal, target=stasiun_tujuan, weight='weight')
 
             st.success("Rute Berhasil Ditemukan!")
-            
-            st.metric(label="Total Estimasi Waktu", value=f"{int(total_waktu)} Menit")
-            st.caption("*Sudah termasuk penalti waktu transit jalan kaki antar-peron.")
+            st.metric(label="Total Estimasi Waktu Tempuh", value=f"{int(total_waktu)} Menit")
+            st.caption("*Sudah memperhitungkan penalti jalan kaki dan pindah peron di stasiun transit.")
 
-            st.write("### Detail Jalur Perjalanan:")
-            alur_teks = " ➔ ".join(rute)
-            st.info(alur_teks)
+            st.write("### Jalur yang Dilewati:")
+            st.info(" ➔ ".join(rute))
 
-            with st.expander("Lihat Rincian Perhentian"):
-                for idx, sta in enumerate(rute, 1):
-                    st.write(f"{idx}. {sta}")
+            with st.expander("Lihat Rincian Langkah Perjalanan"):
+                for idx in range(len(rute) - 1):
+                    asal_step = rute[idx]
+                    tujuan_step = rute[idx + 1]
+                    waktu_step = G[asal_step][tujuan_step]['weight']
+                    
+                    if "_" in asal_step and "_" in tujuan_step and asal_step.split("_")[0] == tujuan_step.split("_")[0]:
+                        st.write(f"🔄 **Transit / Pindah Peron** di {asal_step.split('_')[0]} ({int(waktu_step)} menit)")
+                    else:
+                        st.write(f"• {asal_step} ➔ {tujuan_step} ({int(waktu_step)} menit)")
 
         except nx.NetworkXNoPath:
-            st.error("Tidak ditemukan rute penghubung antara kedua stasiun tersebut.")
+            st.error("Tidak ditemukan rute penghubung antara kedua stasiun yang dipilih.")
