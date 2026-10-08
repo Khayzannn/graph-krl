@@ -19,7 +19,7 @@ else:
     st.error(f"File jadwal.csv tidak ditemukan di: {csv_path}")
     st.stop()
 
-st.title("🚆 Simulasi Rute KRL Jabodetabek")
+st.title("🚆 SIMRUTE KRL JABODETABEK")
 st.caption("Pencarian Rute Tercepat Berbasis Algoritma Dijkstra & Teori Graf")
 st.write("---")
 
